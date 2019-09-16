@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/migration_navigation_graph"
+    app:startDestination="@id/processingFragment">
+    <fragment
+        android:id="@+id/processingFragment"
+        android:name="com.example.navigation_sample.ProcessingFragment"
+        android:label="ProcessingFragment"
+        tools:layout="@layout/fragment_processing">
+        <action
+            android:id="@+id/action_processingFragment_to_decidingFragment"
+            app:destination="@id/decidingFragment"
+            app:popUpTo="@+id/decidingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/decidingFragment"
+        android:name="com.example.navigation_sample.DecidingFragment"
+        android:label="DecidingFragment"
+        tools:layout="@layout/fragment_deciding">
+        <action
+            android:id="@+id/action_decidingFragment_to_processingFragment"
+            app:destination="@id/processingFragment"
+            app:popUpTo="@+id/processingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_decidingFragment_to_failureFragment"
+            app:destination="@id/failureFragment"
+            app:popUpTo="@+id/failureFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/failureFragment"
+        android:name="com.example.navigation_sample.FailureFragment"
+        android:label="fragment_failure"
+        tools:layout="@layout/fragment_failure" >
+        <argument
+            android:name="accounts"
+            app:argType="string[]" />
+    </fragment>
+</navigation>
