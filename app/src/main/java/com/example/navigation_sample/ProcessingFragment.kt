@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import kotlinx.coroutines.*
 
 class ProcessingFragment: Fragment(), CoroutineScope by MainScope() {
@@ -20,7 +21,11 @@ class ProcessingFragment: Fragment(), CoroutineScope by MainScope() {
         println("in processing fragment")
         launch {
             delay(2_000L)
-            findNavController().navigate(R.id.action_processingFragment_to_decidingFragment)
+            findNavController().navigate(R.id.action_processingFragment_to_decidingFragment, null, navOptions {
+                popUpTo(R.id.processingFragment) {
+                    inclusive = true
+                }
+            })
         }
     }
 

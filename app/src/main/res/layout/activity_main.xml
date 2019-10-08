@@ -10,10 +10,11 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:layout_marginTop="32dp"
         android:text="YOU SHOULD NOT SEE ME"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
 
     <fragment
@@ -22,9 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/migration_navigation_graph"
+
+        app:navGraph="@navigation/cycle_navigation_graph"
         tools:layout_editor_absoluteX="5dp"
         tools:layout_editor_absoluteY="5dp" />
-
+    <!--        app:navGraph="@navigation/migration_navigation_graph"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

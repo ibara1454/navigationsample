@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 
 class DecidingFragment: Fragment() {
     // Hack:
@@ -38,12 +39,20 @@ class DecidingFragment: Fragment() {
     }
 
     private fun navigateSuccess() {
-        findNavController().navigate(R.id.action_decidingFragment_to_processingFragment)
+        findNavController().navigate(R.id.action_decidingFragment_to_processingFragment, null, navOptions {
+            popUpTo(R.id.processingFragment) {
+                inclusive = true
+            }
+        })
     }
 
     private fun navigateFailure() {
         val accounts = listOf("message1", "message2", "message3").toTypedArray()
         val action = DecidingFragmentDirections.actionDecidingFragmentToFailureFragment(accounts = accounts)
-        findNavController().navigate(action)
+        findNavController().navigate(action, navOptions {
+            popUpTo(R.id.processingFragment) {
+                inclusive = true
+            }
+        })
     }
 }

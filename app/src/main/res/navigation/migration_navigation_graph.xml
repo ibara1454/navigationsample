@@ -12,7 +12,8 @@
         <action
             android:id="@+id/action_processingFragment_to_decidingFragment"
             app:destination="@id/decidingFragment"
-            app:popUpTo="@+id/decidingFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/processingFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -23,12 +24,14 @@
         <action
             android:id="@+id/action_decidingFragment_to_processingFragment"
             app:destination="@id/processingFragment"
+            app:launchSingleTop="true"
             app:popUpTo="@+id/processingFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_decidingFragment_to_failureFragment"
             app:destination="@id/failureFragment"
-            app:popUpTo="@+id/failureFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/processingFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
